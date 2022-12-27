@@ -3,8 +3,10 @@ import Link from 'next/link'
 const Nav = () => {
 	return (
 		<nav className='navbar'>
-			<div>
-				<Link href='/'>Julias Shop of Silver</Link>
+			<div className='navbar__logo'>
+				<Link href='/'>
+					<img src='/shop-of-silver_liggande.svg' />
+				</Link>
 			</div>
 			<Link href='/products'>Products</Link>
 		</nav>
