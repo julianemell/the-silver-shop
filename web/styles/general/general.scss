@@ -1,0 +1,7 @@
+// general
+@use './default';
+
+html,
+body {
+	font-family: default.$font-family;
+}
