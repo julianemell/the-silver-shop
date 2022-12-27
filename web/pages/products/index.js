@@ -1,8 +1,9 @@
 import { createClient } from 'next-sanity'
+import ProductCard from '../../components/ProductCard';
 
 const client = createClient({
-	projectId: 'fmf3b9s8',
-	dataset: 'production'
+	projectId: process.env.SANITY_PROJECT_ID,
+	dataset: process.env.SANITY_DATASET,
 })
 
 export async function getStaticProps() {
@@ -20,8 +21,8 @@ const Products = ({ products }) => {
 		<div>
 			{products.length > 0 && (
 				<ul>
-					{products.map((product) => (
-					<li key={product._id}>{product?.name}</li>
+					{products.map(product => (
+						<ProductCard key={product._id} product={product} />
 					))}
 				</ul>
 			)}
