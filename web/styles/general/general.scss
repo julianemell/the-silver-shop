@@ -1,7 +1,12 @@
 // general
 @use './default';
+@use './colors';
 
 html,
 body {
 	font-family: default.$font-family;
+}
+
+a {
+	color: colors.$primary-orange;
 }
