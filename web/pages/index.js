@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+
 import { createClient } from 'next-sanity'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -7,7 +7,7 @@ export default function Home({ products }) {
 	return (
 		<>
 			<Nav />
-			<main className={styles.main}>
+			<main>
 				{products.length > 0 && (
 					<ul>
 						{products.map((product) => (
