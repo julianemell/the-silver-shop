@@ -1,12 +1,8 @@
-
 import { createClient } from 'next-sanity'
-import Nav from '../components/Nav'
-import Footer from '../components/Footer'
 
 export default function Home({ products }) {
 	return (
 		<>
-			<Nav />
 			<main>
 				{products.length > 0 && (
 					<ul>
@@ -17,7 +13,6 @@ export default function Home({ products }) {
 				)}
 				{!products.length > 0 && <p>No products to show</p>}
 			</main>
-			<Footer />
 		</>
 	)
 }
