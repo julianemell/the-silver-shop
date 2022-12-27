@@ -1,0 +1,15 @@
+// home
+
+.home {
+	position: relative;
+	width: 100vw;
+	height: 90vh;
+
+	.home__logo {
+		position: absolute;
+		bottom: 0;
+		width: 70%;
+		transform: rotate(-20deg);
+		margin: 15%;
+	}
+}
