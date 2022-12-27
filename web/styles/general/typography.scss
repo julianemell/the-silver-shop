@@ -1,0 +1,14 @@
+// typography
+@use './responsive' as *;
+
+h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 2.5rem;
+
+	@media (min-width: $screen-medium) {
+		font-size: clamp(2.5rem, 2.5vw, 3.5rem);
+		font-weight: 600;
+		line-height: 3.5rem;
+	}
+}
