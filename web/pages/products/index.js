@@ -1,18 +1,25 @@
 import ProductCard from '../../components/ProductCard';
 import { client } from '../../library/client'
+import Link from 'next/link'
 
 const Products = ({ products }) => {
 	return (
-		<div className='products'>
-			{products.length > 0 && (
-				<>
-					{products.map(product => (
-						<ProductCard key={product._id} product={product} />
-					))}
-				</>
-			)}
-			{!products.length > 0 && <p>No products to show</p>}
-		</div>
+		<>
+			<span className='product__links'>
+				<Link href='/'>Home</Link> / <span>Products</span>
+			</span>
+
+			<div className='products'>
+				{products.length > 0 && (
+					<>
+						{products.map(product => (
+							<ProductCard key={product._id} product={product} />
+						))}
+					</>
+				)}
+				{!products.length > 0 && <p>No products to show</p>}
+			</div>
+		</>
 	)
 }
 
