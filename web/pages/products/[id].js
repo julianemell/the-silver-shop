@@ -1,9 +1,17 @@
-import { createClient } from 'next-sanity'
+import { client } from '../../library/client'
 
-const client = createClient({
-	projectId: process.env.SANITY_PROJECT_ID,
-	dataset: process.env.SANITY_DATASET,
-})
+const Details = ({ product }) => {
+	const productDetails = product[0]
+
+	return (
+		<>
+			<h1>Details</h1>
+			{productDetails && (
+				<p>{productDetails.name}</p>
+			)}
+		</>
+	)
+}
 
 // fetch all the products
 export const getStaticPaths = async () => {
@@ -34,19 +42,6 @@ export const getStaticProps = async (context) => {
 		}
 	}
 
-}
-
-const Details = ({ product }) => {
-	const productDetails = product[0]
-
-	return (
-		<>
-			<h1>Details</h1>
-			{productDetails && (
-				<p>{productDetails.name}</p>
-			)}
-		</>
-	)
 }
 
 export default Details

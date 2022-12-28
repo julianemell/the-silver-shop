@@ -1,20 +1,5 @@
-import { createClient } from 'next-sanity'
 import ProductCard from '../../components/ProductCard';
-
-const client = createClient({
-	projectId: process.env.SANITY_PROJECT_ID,
-	dataset: process.env.SANITY_DATASET,
-})
-
-export async function getStaticProps() {
-	const products = await client.fetch(`*[_type == "product"]`)
-
-	return {
-		props: {
-			products
-		}
-	}
-}
+import { client } from '../../library/client'
 
 const Products = ({ products }) => {
 	return (
@@ -29,6 +14,16 @@ const Products = ({ products }) => {
 			{!products.length > 0 && <p>No products to show</p>}
 		</div>
 	)
+}
+
+export const getServerSideProps = async () => {
+	const products = await client.fetch(`*[_type == "product"]`)
+
+	return {
+		props: {
+			products
+		}
+	}
 }
 
 export default Products
