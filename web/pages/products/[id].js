@@ -1,13 +1,19 @@
-import { client } from '../../library/client'
+import { client, urlFor } from '../../library/client'
 
 const Details = ({ product }) => {
 	const productDetails = product[0]
+	console.log('productDetails', productDetails)
 
 	return (
 		<>
 			<h1>Details</h1>
 			{productDetails && (
-				<p>{productDetails.name}</p>
+				<>
+					<p>{productDetails.name}</p>
+					{productDetails.images?.map(image => (
+						<img key={image?.asset._ref} src={urlFor(image).url()} alt='' width='200' />
+					))}
+				</>
 			)}
 		</>
 	)
