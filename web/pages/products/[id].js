@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { client, urlFor } from '../../library/client'
 
 const Details = ({ product }) => {
@@ -5,17 +6,24 @@ const Details = ({ product }) => {
 	console.log('productDetails', productDetails)
 
 	return (
-		<>
-			<h1>Details</h1>
+		<div className='product'>
+			<span className='product__links'>
+				<Link href='/'>Home</Link> / <Link href='/products'>Products</Link> / <span>{productDetails.name}</span>
+			</span>
+
 			{productDetails && (
 				<>
-					<p>{productDetails.name}</p>
 					{productDetails.images?.map(image => (
-						<img key={image?.asset._ref} src={urlFor(image).url()} alt='' width='200' />
-					))}
+						<img key={image?.asset._ref} src={urlFor(image).url()} alt='' width='400' />
+						))}
+					<h2>{productDetails.name}</h2>
+					<p>{productDetails.productDescription}</p>
+					<p>{productDetails.productCost} kr</p>
+
+					<button className='button button--primary'>Add to cart</button>
 				</>
 			)}
-		</>
+		</div>
 	)
 }
 
