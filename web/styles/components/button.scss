@@ -1,0 +1,27 @@
+// buttons
+@use '../general/default';
+@use '../general/colors';
+
+.button {
+	font-family: default.$font-family;
+	padding: 1rem 2rem;
+	border: none;
+	cursor: pointer;
+}
+
+.button--primary {
+	background-color: colors.$primary-orange;
+	color: white;
+
+	&:hover {
+		background-color: black;
+	}
+
+	&:active {
+		background-color: colors.$primary-green;
+	}
+
+	&:focus {
+		background-color: colors.$primary-brown;
+	}
+}
