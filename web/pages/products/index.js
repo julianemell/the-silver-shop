@@ -3,13 +3,13 @@ import { client } from '../../library/client'
 
 const Products = ({ products }) => {
 	return (
-		<div>
+		<div className='products'>
 			{products.length > 0 && (
-				<ul>
+				<>
 					{products.map(product => (
 						<ProductCard key={product._id} product={product} />
 					))}
-				</ul>
+				</>
 			)}
 			{!products.length > 0 && <p>No products to show</p>}
 		</div>
