@@ -1,0 +1,39 @@
+// nav
+@use '../general/colors';
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+
+	.navbar__logo {
+		width: 15rem;
+	}
+
+	.cart {
+		position: relative;
+		width: 1.5rem;
+		cursor: pointer;
+	}
+
+	.cart--amount {
+		position: absolute;
+		right: -.5rem;
+		bottom: -.1rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		font-size: .8rem;
+		background-color: colors.$primary-green;
+		color: white;
+		width: 1rem;
+		height: 1rem;
+		padding: .05rem;
+		border-radius: 50%;
+
+		cursor: pointer;
+	}
+}
