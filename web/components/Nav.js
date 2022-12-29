@@ -8,7 +8,12 @@ const Nav = () => {
 					<img src='/shop-of-silver_liggande.svg' />
 				</Link>
 			</div>
-			<Link href='/products'>Products</Link>
+			<div className='cart'>
+				<img src='/cart.svg' />
+				<div className='cart--amount'>
+					<p>8</p>
+				</div>
+			</div>
 		</nav>
 	)
 }
