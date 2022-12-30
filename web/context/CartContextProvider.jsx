@@ -8,7 +8,6 @@ export const useShoppingCart = () => {
 
 const CartContextProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([])
-	console.log('cartItems', cartItems)
 	
 	const getItemQuantity = (id) => {
 		console.log('cartItems get item quantity', cartItems)
@@ -36,11 +35,9 @@ const CartContextProvider = ({ children }) => {
 	}
 
 	const decreaseCartQuantity = (id) => {
-		console.log('id', id)
 		setCartItems(currentItems => {
-			console.log('cartitems', currentItems)
-			if(currentItems.find(item => item.id === id)) {
-				return currentItems.pop(item => item.id !== id)
+			if(currentItems.find(item => item.id === id)?.quantity === 1) {
+				return currentItems.filter(item => item.id !== id)
 			} else {
 				return currentItems.map(item => {
 					if (item.id === id) {
