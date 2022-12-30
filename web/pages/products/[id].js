@@ -1,9 +1,18 @@
 import Link from 'next/link'
+import { useShoppingCart } from '../../context/CartContextProvider'
 import { client, urlFor } from '../../library/client'
 
 const Details = ({ product }) => {
 	const productDetails = product[0]
-	console.log('productDetails', productDetails)
+	console.log('productDetails from product page', productDetails._id)
+
+	const { 
+		getItemQuantity,
+		increaseCartQuantity,
+		decreaseCartQuantity,
+	} = useShoppingCart()
+
+	const quantity = getItemQuantity(productDetails._id)
 
 	return (
 		<div className='product'>
@@ -20,7 +29,17 @@ const Details = ({ product }) => {
 					<p>{productDetails.productDescription}</p>
 					<p>{productDetails.productCost} kr</p>
 
-					<button className='button button--primary'>Add to cart</button>
+					<div>
+						{quantity === 0 ? (
+							<button className='button button--primary' onClick={() => increaseCartQuantity(productDetails._id)}>Add to cart</button>
+						) : (
+							<div className='product--amount'>
+								<button className='product--amount-change' onClick={() => decreaseCartQuantity(productDetails._id)}>-</button>
+								<span>{quantity}</span>
+								<button className='product--amount-change' onClick={() => increaseCartQuantity(productDetails._id)}>+</button>
+							</div>
+						)}
+					</div>
 				</>
 			)}
 		</div>
