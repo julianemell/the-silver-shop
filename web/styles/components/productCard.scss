@@ -32,7 +32,14 @@
 		&:hover {
 			transform: scale(1.05);
 		}
+
+		img {
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+		}
 	}
+
 
 	h2, p, a {
 		margin: 0;
