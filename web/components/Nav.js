@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import { useShoppingCart } from '../context/CartContextProvider'
 
 const Nav = () => {
+	const { openCart, cartQuantity } = useShoppingCart()
+
 	return (
 		<nav className='navbar'>
 			<div className='navbar__logo'>
@@ -8,12 +11,14 @@ const Nav = () => {
 					<img src='/shop-of-silver_liggande.svg' />
 				</Link>
 			</div>
-			<div className='cart'>
-				<img src='/cart.svg' />
-				<div className='cart--amount'>
-					<p>8</p>
+			{cartQuantity && 
+				<div className='cart' onClick={openCart}>
+					<img src='/cart.svg' />
+					<div className='cart--amount'>
+						<p>{cartQuantity}</p>
+					</div>
 				</div>
-			</div>
+			}
 		</nav>
 	)
 }
