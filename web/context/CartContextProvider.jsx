@@ -76,6 +76,7 @@ const CartContextProvider = ({ children }) => {
 		cartQuantity,
 		openCart,
 		closeCart,
+		isOpen,
 	}
 
 	return (
