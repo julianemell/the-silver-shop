@@ -24,7 +24,7 @@ const Details = ({ product }) => {
 				<>
 					{productDetails.images?.map(image => (
 						<img key={image?.asset._ref} src={urlFor(image).url()} alt='' width='400' />
-						))}
+					))}
 					<h2>{productDetails.name}</h2>
 					<p>{productDetails.productDescription}</p>
 					<p>{productDetails.productCost} kr</p>
