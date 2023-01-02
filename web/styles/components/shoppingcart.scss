@@ -2,6 +2,14 @@
 @use '../general/colors';
 @use '../general/responsive' as *;
 
+.cart {
+	transition: transform .1s;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
 .shoppingcart {
 	display: flex;
 	justify-content: space-between;
