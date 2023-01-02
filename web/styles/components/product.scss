@@ -1,5 +1,51 @@
 // product
 @use '../general/colors';
+@use '../general/responsive' as *;
+
+.products {
+	display: grid;
+	grid-template-columns: min-content;
+	grid-template-rows: auto;
+	justify-content: center;
+	gap: 1rem;
+
+	@media (min-width: $screen-small) {
+		grid-template-columns: repeat(2, min-content);
+	}
+
+	@media (min-width: $screen-large) {
+		grid-template-columns: repeat(3, min-content);
+	}
+	
+	h2, p, a {
+		margin: 0;
+		text-decoration: none;
+	}
+}
+
+.product__card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: .5rem;
+	width: 200px;
+
+	background-color: rgb(245, 245, 245);
+	padding: 1rem;
+	border-radius: 2rem;
+	transition: transform .1s;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	img {
+		width: 200px;
+		height: 200px;
+		object-fit: cover;
+	}
+}
 
 .product {
 	display: flex;
