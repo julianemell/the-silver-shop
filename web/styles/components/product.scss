@@ -10,16 +10,21 @@
 	h2, p {
 		margin: .5rem;
 	}
+}
 
-	.product--amount {
-		background-color: colors.$primary-orange;
-		padding: 1rem 2rem;
+.product--amount {
+	background-color: colors.$primary-orange;
+	padding: 1rem 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
 
-		button {
-			background: none;
-			border: none;
-			cursor: pointer;
-		}
+	button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: white;
 	}
 }
 
