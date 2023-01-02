@@ -25,3 +25,20 @@
 		background-color: colors.$primary-brown;
 	}
 }
+
+.button--secondary {
+	background-color: colors.$primary-brown;
+	color: white;
+
+	&:hover {
+		background-color: black;
+	}
+
+	&:active {
+		background-color: colors.$primary-green;
+	}
+
+	&:focus {
+		background-color: colors.$secondary-brown;
+	}
+}
