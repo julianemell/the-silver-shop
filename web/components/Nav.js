@@ -2,8 +2,9 @@ import Link from 'next/link'
 import { useShoppingCart } from '../context/CartContextProvider'
 
 const Nav = () => {
-	const { openCart, cartQuantity } = useShoppingCart()
-
+	const { openCart, closeCart, cartQuantity, isOpen } = useShoppingCart()
+	console.log('isOpen', isOpen)
+	console.log('isOpen', openCart)
 	return (
 		<nav className='navbar'>
 			<div className='navbar__logo'>
@@ -12,7 +13,13 @@ const Nav = () => {
 				</Link>
 			</div>
 			{cartQuantity && 
-				<div className='cart' onClick={openCart}>
+				<div 
+					className='cart' 
+					onClick={openCart}
+					aria-controls="shoppingcart-items"
+					aria-expanded='false'
+					data-visible={isOpen}
+				>
 					<img src='/cart.svg' />
 					<div className='cart--amount'>
 						<p>{cartQuantity}</p>
