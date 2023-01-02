@@ -52,6 +52,22 @@
 	background: none;
 	width: 1rem;
 	height: 1rem;
-	background: center url('../../public/kryss.svg') transparent;
+	background: center url('../../public/kryss.svg') transparent no-repeat;
 	cursor: pointer;
+}
+
+.shoppingcart--add-remove {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: .2rem;
+
+	.shoppingcart--remove {
+		border: none;
+		background: none;
+		background: center url('../../public/kryss-orange.svg') transparent no-repeat;
+		width: 1rem;
+		height: 1rem;
+		
+	}
 }
