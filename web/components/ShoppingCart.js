@@ -16,6 +16,7 @@ const ShoppingCart = () => {
 
 	return (
 		<div className='shoppingcart'>
+			{cartQuantity >= 1 && isOpen == true &&
 				<div className='shoppingcart-items' data-visible={isOpen}>
 					<button 
 						className='shoppingcart--close'
@@ -42,7 +43,7 @@ const ShoppingCart = () => {
 						<button className='button button--secondary'>Go to checkout</button>
 					</div>
 				</div>
-			
+			}
 		</div>
 	)
 }

@@ -3,8 +3,7 @@ import { useShoppingCart } from '../context/CartContextProvider'
 
 const Nav = () => {
 	const { openCart, closeCart, cartQuantity, isOpen } = useShoppingCart()
-	console.log('isOpen', isOpen)
-	console.log('isOpen', openCart)
+	
 	return (
 		<nav className='navbar'>
 			<div className='navbar__logo'>
@@ -12,7 +11,7 @@ const Nav = () => {
 					<img src='/shop-of-silver_liggande.svg' />
 				</Link>
 			</div>
-			{cartQuantity && 
+			{cartQuantity >= 1 && 
 				<div 
 					className='cart' 
 					onClick={openCart}
