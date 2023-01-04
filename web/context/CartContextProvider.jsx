@@ -21,9 +21,9 @@ const CartContextProvider = ({ children }) => {
 	const closeCart = () => setIsOpen(false)
 	
 	const getItemQuantity = (id) => {
-		console.log('cartItems get item quantity', cartItems)
 		if(cartItems.find(item => item.id === id)){
-			return + 1
+			let cartProduct = cartItems.find(item => item.id === id)
+			return cartProduct.quantity
 		} else {
 			return 0
 		}
