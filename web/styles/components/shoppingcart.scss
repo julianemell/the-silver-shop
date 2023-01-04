@@ -31,23 +31,22 @@
 
 	transform: translateX(100%);
 	transition: transform 350ms ease-out;
+}
 
-	
-	.shoppingcart-item {
-		color: white;
-		padding: 1rem;
-		margin-bottom: 1rem;
-		background-color: colors.$primary-green;
-	
-		&:nth-child(odd) {
-			background-color: colors.$primary-yellow;
-		}
-	}
-	
-	.product--amount {
-		width: 100%;
+.shoppingcart-item {
+	color: white;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	background-color: colors.$primary-green;
+
+	&:nth-child(odd) {
+		background-color: colors.$primary-yellow;
 	}
 }
+
+/*.product--amount {
+	width: 100%;
+}*/
 
 .shoppingcart-items[data-visible=true] {
 	transform: translateX(0%);
