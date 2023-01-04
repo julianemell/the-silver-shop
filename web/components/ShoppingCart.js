@@ -22,11 +22,11 @@ const ShoppingCart = () => {
 					></button>
 
 					{cartItems && cartItems.map(item => (
-						<ShoppingCartItem product={item} />
+						<ShoppingCartItem key={item.id} product={item} />
 					))}
 
 					<div>
-						<p>{cartQuantity}</p>
+						<p>Total number of products: {cartQuantity} pcs</p>
 						<button className='button button--secondary'>Go to checkout</button>
 					</div>
 				</div>
@@ -34,7 +34,5 @@ const ShoppingCart = () => {
 		</div>
 	)
 }
-
-
 
 export default ShoppingCart
