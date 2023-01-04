@@ -4,7 +4,6 @@ import { client, urlFor } from '../../library/client'
 
 const Details = ({ product }) => {
 	const productDetails = product[0]
-	console.log('productDetails from product page', productDetails._id)
 
 	const { 
 		getItemQuantity,
@@ -28,20 +27,19 @@ const Details = ({ product }) => {
 					<h2>{productDetails.name}</h2>
 					<p>{productDetails.productDescription}</p>
 					<p>{productDetails.productCost} kr</p>
-
-					<div>
-						{quantity === 0 ? (
-							<button className='button button--primary' onClick={() => increaseCartQuantity(productDetails._id)}>Add to cart</button>
-						) : (
-							<div className='product--amount'>
-								<button className='product--amount-change' onClick={() => decreaseCartQuantity(productDetails._id)}>-</button>
-								<span>{quantity}</span>
-								<button className='product--amount-change' onClick={() => increaseCartQuantity(productDetails._id)}>+</button>
-							</div>
-						)}
-					</div>
 				</>
 			)}
+			<div>
+				{productDetails && quantity === 0 ? (
+					<button className='button button--primary' onClick={() => increaseCartQuantity(productDetails._id)}>Add to cart</button>
+				) : (
+					<div className='product--amount'>
+						<button className='product--amount-change' onClick={() => decreaseCartQuantity(productDetails._id)}>-</button>
+						<span>{quantity}</span>
+						<button className='product--amount-change' onClick={() => increaseCartQuantity(productDetails._id)}>+</button>
+					</div>
+				)}
+			</div>
 		</div>
 	)
 }
