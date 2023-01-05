@@ -5,7 +5,6 @@ import { client } from '../library/client'
 
 const ShoppingCart = () => {
 	const [allProducts, setAllProducts] = useState([])
-	const [totPrice, setTotPrice] = useState(0)
 
 	const { 
 		closeCart,
@@ -14,9 +13,6 @@ const ShoppingCart = () => {
 		cartQuantity,
 	} = useShoppingCart()
 
-	const totalPrice = () => {
-		
-	}
 
 	useEffect(() => {
 		const getProducts = async () => {
