@@ -1,9 +1,7 @@
 import { useShoppingCart } from '../context/CartContextProvider'
-import { client, urlFor } from '../library/client'
-import { useEffect, useState } from 'react'
+import { urlFor } from '../library/client'
 
-const ShoppingCartItem = ({ product }) => {
-	const [allProducts, setAllProducts] = useState([])
+const ShoppingCartItem = ({ product, allProducts }) => {
 	
 	const productInCart = allProducts.find(i => i._id === product.id)
 	
@@ -20,14 +18,6 @@ const ShoppingCartItem = ({ product }) => {
 		return cost * amount
 	}
 
-	useEffect(() => {
-		const getProducts = async () => {
-			await client
-				.fetch(`*[_type == "product"]`)
-				.then(product => setAllProducts(product))
-		}
-		getProducts()
-	}, [])
 
 	return (
 		<div className='shoppingcart-item'>
