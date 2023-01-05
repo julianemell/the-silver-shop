@@ -16,6 +16,10 @@ const ShoppingCartItem = ({ product }) => {
 
 	const quantity = getItemQuantity(product.id)
 
+	const totCost = (cost, amount) => {
+		return cost * amount
+	}
+
 	useEffect(() => {
 		const getProducts = async () => {
 			await client
@@ -40,6 +44,9 @@ const ShoppingCartItem = ({ product }) => {
 					<span>{quantity}</span>
 					<button className='product--amount-change' onClick={() => increaseCartQuantity(product.id)}>+</button>
 				</div>
+				{productInCart && (
+					<p>{totCost(productInCart.productCost, quantity)} kr</p>
+				)}
 				<button className='shoppingcart--remove' onClick={() => removeFromCart(product.id)}></button>
 			</span>
 		</div>
