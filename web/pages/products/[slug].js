@@ -15,6 +15,7 @@ const Details = ({ product }) => {
 
 	return (
 		<div className='product'>
+			hej
 			<span className='product__links'>
 				<Link href='/'>Home</Link> / <Link href='/products'>Products</Link> / <span>{productDetails.name}</span>
 			</span>
@@ -46,11 +47,11 @@ const Details = ({ product }) => {
 
 // fetch all the products
 export const getStaticPaths = async () => {
-	const products = await client.fetch(`*[_type == "product"]`)
+	const products = await client.fetch(`*[_type == "product"]` )
 
 	const paths = products.map(product => {
 		return {
-			params: { id: product._id.toString() }
+			params: { slug: product.productSlug.current }
 		}
 	})
 
@@ -61,10 +62,10 @@ export const getStaticPaths = async () => {
 }
 
 // for each product getStaticProps
-// the id is in the context object
+// the slug is in the context object
 export const getStaticProps = async (context) => {
-	const product = await client.fetch(`*[_type == "product" && _id == $_id]`, {
-		_id: context.params.id
+	const product = await client.fetch(`*[_type == "product" && productSlug.current == $slug]`, {
+		slug: context.params.slug
 	})
 
 	return {
