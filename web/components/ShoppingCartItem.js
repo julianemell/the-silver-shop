@@ -25,18 +25,28 @@ const ShoppingCartItem = ({ product, allProducts }) => {
 				<p>{productInCart.name}</p>
 				
 			}
-			{productInCart && productInCart.images.map(image => (
-				<img key={image?.asset._ref} src={urlFor(image).url()} alt='' width='100' />
-			))}
+
+			{productInCart.images && 
+				<img 
+					key={productInCart.images[0].asset._ref} 
+					src={urlFor(productInCart.images[0]).url()} 
+					alt='' 
+					width='50' 
+					className='' 
+				/>
+			}
+
 			<span className='shoppingcart--add-remove'>
 				<div className='product--amount'>
 					<button className='product--amount-change' onClick={() => decreaseCartQuantity(product.id)}>-</button>
 					<span>{quantity}</span>
 					<button className='product--amount-change' onClick={() => increaseCartQuantity(product.id)}>+</button>
 				</div>
+
 				{productInCart && (
 					<p>{totCost(productInCart.productCost, quantity)} kr</p>
 				)}
+
 				<button className='shoppingcart--remove' onClick={() => removeFromCart(product.id)}></button>
 			</span>
 		</div>
