@@ -3,41 +3,41 @@ import { useShoppingCart } from '../../context/CartContextProvider'
 import { client, urlFor } from '../../library/client'
 
 const Details = ({ product }) => {
-	const productDetails = product[0]
-
+	const { images, _id, name, productDescription, productCost } = product
+	
 	const { 
 		getItemQuantity,
 		increaseCartQuantity,
 		decreaseCartQuantity,
 	} = useShoppingCart()
 
-	const quantity = getItemQuantity(productDetails._id)
+	const quantity = getItemQuantity(_id)
 
 	return (
 		<div className='product'>
 			hej
 			<span className='product__links'>
-				<Link href='/'>Home</Link> / <Link href='/products'>Products</Link> / <span>{productDetails.name}</span>
+				<Link href='/'>Home</Link> / <Link href='/products'>Products</Link> / <span>{name}</span>
 			</span>
 
-			{productDetails && (
+			{product && (
 				<>
-					{productDetails.images?.map(image => (
+					{images?.map(image => (
 						<img key={image?.asset._ref} src={urlFor(image).url()} alt='' width='400' />
 					))}
-					<h2>{productDetails.name}</h2>
-					<p>{productDetails.productDescription}</p>
-					<p>{productDetails.productCost} kr</p>
+					<h2>{name}</h2>
+					<p>{productDescription}</p>
+					<p>{productCost} kr</p>
 				</>
 			)}
 			<div>
-				{productDetails && quantity === 0 ? (
-					<button className='button button--primary' onClick={() => increaseCartQuantity(productDetails._id)}>Add to cart</button>
+				{product && quantity === 0 ? (
+					<button className='button button--primary' onClick={() => increaseCartQuantity(_id)}>Add to cart</button>
 				) : (
 					<div className='product--amount'>
-						<button className='product--amount-change' onClick={() => decreaseCartQuantity(productDetails._id)}>-</button>
+						<button className='product--amount-change' onClick={() => decreaseCartQuantity(_id)}>-</button>
 						<span>{quantity}</span>
-						<button className='product--amount-change' onClick={() => increaseCartQuantity(productDetails._id)}>+</button>
+						<button className='product--amount-change' onClick={() => increaseCartQuantity(_id)}>+</button>
 					</div>
 				)}
 			</div>
@@ -64,7 +64,7 @@ export const getStaticPaths = async () => {
 // for each product getStaticProps
 // the slug is in the context object
 export const getStaticProps = async (context) => {
-	const product = await client.fetch(`*[_type == "product" && productSlug.current == $slug]`, {
+	const product = await client.fetch(`*[_type == "product" && productSlug.current == $slug][0]`, {
 		slug: context.params.slug
 	})
 
