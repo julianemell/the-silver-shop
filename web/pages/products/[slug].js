@@ -15,7 +15,6 @@ const Details = ({ product }) => {
 
 	return (
 		<div className='product'>
-			hej
 			<span className='product__links'>
 				<Link href='/'>Home</Link> / <Link href='/products'>Products</Link> / <span>{name}</span>
 			</span>
