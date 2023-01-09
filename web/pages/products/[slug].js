@@ -25,20 +25,29 @@ const Details = ({ product, products }) => {
 
 				{product && (
 					<>
-						{images && 
-							<img key={images[imageIndex].asset._ref} src={urlFor(images[imageIndex]).url()} alt='' width='400' />
-						}
-						<div className='product__images-container'>
-							{product.images?.map((image, i) => (
+						{images &&
+							<>
 								<img 
-									key={image?.asset._ref} 
-									src={urlFor(image).url()} 
+									key={images[imageIndex].asset._ref} 
+									src={urlFor(images[imageIndex]).url()} 
 									alt='' 
-									width='50' 
-									className='product__images-container-image' 
-									onMouseEnter={() => setImageIndex(i)}/>
-							))}
-						</div>
+									className='product__image'
+								/>
+							
+								<div className='product__images-container'>
+									{product.images?.map((image, i) => (
+										<img 
+											key={image?.asset._ref} 
+											src={urlFor(image).url()} 
+											alt='' 
+											width='50' 
+											className='product__images-container-image' 
+											onMouseEnter={() => setImageIndex(i)}
+										/>
+									))}
+								</div>
+							</>
+						}
 						<h2>{name}</h2>
 						<p>{productDescription}</p>
 						<p>{productCost} kr</p>
