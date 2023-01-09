@@ -81,6 +81,17 @@
 	gap: .5rem;
 }
 
+.product__images-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: .4rem;
+	
+	&-image {
+		cursor: pointer;
+	}
+}
+
 .products__marquee {
 	display: flex;
 	justify-content: flex-start;
