@@ -13,6 +13,12 @@ export default {
 			validation: Rule => Rule.required(),
 		},
 		{
+			title: 'Product Code',
+			name: 'productCode',
+			type: 'string',
+			validation: Rule => Rule.required(),
+		},
+		{
 			title: 'Slug',
 			name: 'productSlug',
 			type: 'slug',
@@ -29,12 +35,7 @@ export default {
 			},
 			validation: Rule => Rule.required(),
 		},
-		{
-			title: 'Product Code',
-			name: 'productCode',
-			type: 'string',
-			validation: Rule => Rule.required(),
-		},
+		
 		{
 			title: 'Product Description',
 			name: 'productDescription',
@@ -52,6 +53,24 @@ export default {
 			title: 'Product Cost',
 			name: 'productCost',
 			type: 'number',
+			validation: Rule => Rule.required(),
+		},
+		{
+			title: 'Category',
+			name: 'category',
+			type: 'string',
+			options: {
+				list: [
+					{ title: 'Earrings', value: 'earrings' },
+					{ title: 'Ring', value: 'ring' },
+					{ title: 'Necklace', value: 'necklace' },
+					{ title: 'Bracelet', value: 'bracelet' },
+					{ title: 'Brooch', value: 'brooch' },
+					{ title: 'Hair accessory', value: 'hair-accessory' },
+					{ title: 'Other', value: 'other' },
+				],
+				layout: 'radio',
+			},
 			validation: Rule => Rule.required(),
 		},
 		
