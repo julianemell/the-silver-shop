@@ -81,3 +81,11 @@
 	gap: .5rem;
 }
 
+.products__marquee {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: .5rem;
+	overflow: hidden;
+}
+
