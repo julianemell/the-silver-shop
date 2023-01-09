@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import ProductCard from '../../components/ProductCard'
 import { useShoppingCart } from '../../context/CartContextProvider'
 import { client, urlFor } from '../../library/client'
 
 const Details = ({ product, products }) => {
+	const [imageIndex, setImageIndex] = useState(0)
 	const { images, _id, name, productDescription, productCost } = product
 
 	const { 
@@ -23,9 +25,20 @@ const Details = ({ product, products }) => {
 
 				{product && (
 					<>
-						{images?.map(image => (
-							<img key={image?.asset._ref} src={urlFor(image).url()} alt='' width='400' />
-						))}
+						{images && 
+							<img key={images[imageIndex].asset._ref} src={urlFor(images[imageIndex]).url()} alt='' width='400' />
+						}
+						<div className='product__images-container'>
+							{product.images?.map((image, i) => (
+								<img 
+									key={image?.asset._ref} 
+									src={urlFor(image).url()} 
+									alt='' 
+									width='50' 
+									className='product__images-container-image' 
+									onMouseEnter={() => setImageIndex(i)}/>
+							))}
+						</div>
 						<h2>{name}</h2>
 						<p>{productDescription}</p>
 						<p>{productCost} kr</p>
