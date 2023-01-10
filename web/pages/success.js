@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { useShoppingCart } from '../context/CartContextProvider'
 
 const success = () => {
-	const [order, setOrder] = useState(null)
 	const { setCartItems } = useShoppingCart()
 
 	useEffect(() => {
