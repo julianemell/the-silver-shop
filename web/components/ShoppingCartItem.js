@@ -40,7 +40,7 @@ const ShoppingCartItem = ({ product, allProducts }) => {
 				<div className='product--amount'>
 					<button className='product--amount-change' onClick={() => decreaseCartQuantity(product.id)}>-</button>
 					<span>{quantity}</span>
-					<button className='product--amount-change' onClick={() => increaseCartQuantity(product.id)}>+</button>
+					<button className='product--amount-change' onClick={() => increaseCartQuantity(product.id, product)}>+</button>
 				</div>
 
 				{productInCart && (
