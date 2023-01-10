@@ -29,10 +29,19 @@ const CartContextProvider = ({ children }) => {
 		}
 	}
 
-	const increaseCartQuantity = (id) => {
+	const increaseCartQuantity = (id, product) => {
 		setCartItems(currentItems => {
 			if(currentItems.find(item => item.id === id) == null) {
-				return [...currentItems, { id, quantity: 1 }]
+				return [
+					...currentItems, 
+					{ 
+						id, 
+						name: product.name, 
+						productCost: product.productCost, 
+						images: product.images, 
+						quantity: 1 
+					}
+				]
 			} else {
 				return currentItems.map(item => {
 					if (item.id === id) {
