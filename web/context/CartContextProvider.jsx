@@ -81,11 +81,12 @@ const CartContextProvider = ({ children }) => {
 		increaseCartQuantity, 
 		decreaseCartQuantity, 
 		removeFromCart,
-		cartItems,
 		cartQuantity,
 		openCart,
 		closeCart,
 		isOpen,
+		cartItems,
+		setCartItems,
 	}
 
 	//fetch from localStorage
