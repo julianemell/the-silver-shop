@@ -2,6 +2,7 @@ import ShoppingCartItem from './ShoppingCartItem'
 import { useShoppingCart } from '../context/CartContextProvider'
 import { useEffect, useState } from 'react'
 import { client } from '../library/client'
+import getStripe from '../library/getStripe'
 
 const ShoppingCart = () => {
 	const [allProducts, setAllProducts] = useState([])
@@ -12,7 +13,25 @@ const ShoppingCart = () => {
 		isOpen,
 		cartQuantity,
 	} = useShoppingCart()
+	
+	const handleCheckOut = async () => {
+		const stripe = await getStripe()
 
+		//här kan vi ev använda axios istället
+		const res = await fetch('/api/stripe', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(cartItems),
+		})
+
+		if(res.statusCode === 500) return
+		
+		const data = await res.json()
+
+		stripe.redirectToCheckout({ sessionId: data.id })
+	}
 
 	useEffect(() => {
 		const getProducts = async () => {
@@ -47,7 +66,10 @@ const ShoppingCart = () => {
 								return total + (productInCart?.productCost || 0) * cartItem.quantity
 							}, 0)} kr
 						</p>
-						<button className='button button--secondary'>Go to checkout</button>
+						<button 
+							className='button button--secondary'
+							onClick={() => handleCheckOut()}
+						>Go to checkout</button>
 					</div>
 					<p></p>
 				</div>
