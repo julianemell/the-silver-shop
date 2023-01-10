@@ -55,12 +55,12 @@ const Details = ({ product, products }) => {
 				)}
 				<div>
 					{product && quantity === 0 ? (
-						<button className='button button--primary' onClick={() => increaseCartQuantity(_id)}>Add to cart</button>
+						<button className='button button--primary' onClick={() => increaseCartQuantity(_id, product)}>Add to cart</button>
 					) : (
 						<div className='product--amount'>
-							<button className='product--amount-change' onClick={() => decreaseCartQuantity(_id)}>-</button>
+							<button className='product--amount-change' onClick={() => decreaseCartQuantity(_id, product)}>-</button>
 							<span>{quantity}</span>
-							<button className='product--amount-change' onClick={() => increaseCartQuantity(_id)}>+</button>
+							<button className='product--amount-change' onClick={() => increaseCartQuantity(_id, product)}>+</button>
 						</div>
 					)}
 				</div>
