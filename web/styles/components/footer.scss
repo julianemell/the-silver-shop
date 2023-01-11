@@ -1,6 +1,75 @@
 // footer
+@use '../general/default';
+@use '../general/colors';
 
-.footer {
+.nav-footer {
 	position: fixed;
 	bottom: 0;
+	
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-template-rows: max-content;
+	
+	width: 100%;
+	height: auto;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.nav-footer__item {
+	padding: .8rem;
+	place-self: stretch;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&-shop {
+		grid-column: 1 / 3;
+		grid-row: 1 / 2;
+		background-color: colors.$primary-orange;
+		color: colors.$primary-yellow;
+
+		&:hover {
+			background-color: black;
+			color: colors.$primary-orange;
+		}
+	}
+	
+	&-about {
+		grid-column: 1 / 3;
+		grid-row: 2 / 3;
+		background-color: colors.$primary-brown;
+		color: white;
+
+		&:hover {
+			background-color: colors.$secondary-brown;
+			color: colors.$primary-orange;
+		}
+	}
+	
+	&-social {
+		grid-column: 1 / 2;
+		grid-row: 3 / 4;
+		background-color: colors.$primary-yellow;
+		color: colors.$primary-green;
+
+		&:hover {
+			background-color: colors.$primary-orange;
+			color: black;
+		}
+	}
+	
+	&-mail {
+		grid-column: 2 / 3;
+		grid-row: 3 / 4;
+		background-color: colors.$primary-green;
+		color: colors.$primary-yellow;
+
+		&:hover {
+			background-color: black;
+			color: colors.$primary-green;
+		}
+	}
 }
