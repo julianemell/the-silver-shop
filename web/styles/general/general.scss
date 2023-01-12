@@ -11,3 +11,21 @@ body {
 a {
 	color: colors.$primary-orange;
 }
+
+.quote {
+	position: relative;
+	content: '';
+	margin-block-start: 1.5em;
+	margin-block-end: 1.5em;
+
+	&::after {
+		position: absolute;
+		top: -1rem;
+		left: -2rem;
+		content: '';
+		width: 1.8rem;
+		height: 1.8rem;
+		background: transparent url('../../public/quote.svg') center no-repeat;
+
+	}
+}
