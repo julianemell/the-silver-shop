@@ -1,6 +1,7 @@
 import ProductCard from '../../components/ProductCard';
 import { client } from '../../library/client'
 import Link from 'next/link'
+import 'animate.css'
 
 const Products = ({ products }) => {
 	return (
@@ -9,7 +10,7 @@ const Products = ({ products }) => {
 				<Link href='/'>Home</Link> / <span>Products</span>
 			</span>
 
-			<div className='products'>
+			<div className='products animate__animated animate__fadeInLeft animate__fast'>
 				{products.length > 0 && (
 					<>
 						{products.map(product => (
