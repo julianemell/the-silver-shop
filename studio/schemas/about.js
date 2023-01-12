@@ -15,8 +15,22 @@ export default {
 		{
 			title: 'About Text',
 			name: 'aboutText',
-			type: 'text',
+			type: 'array',
+			of: [{ type: 'block' }],
 			validation: Rule => Rule.required(),
+		},
+		{
+			title: 'Image',
+			name: 'image',
+			type: 'image',
+			fields: [
+				{
+					title: 'Attribution',
+					name: 'attribution',
+					type: 'string',
+					description: 'alt-text - description of the picture',
+				},
+			],
 		},
 	]
 }
