@@ -1,14 +1,49 @@
 // typography
 @use './responsive' as *;
 
+p {
+	margin-block-start: 0;
+}
+
 h1 {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 2.5rem;
+	margin-block-start: 0.3em;
+	margin-block-end: 0.3em;
 
 	@media (min-width: $screen-medium) {
 		font-size: clamp(2.5rem, 2.5vw, 3.5rem);
 		font-weight: 600;
 		line-height: 3.5rem;
 	}
+}
+
+h2 {
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 1.5rem;
+
+	@media (min-width: $screen-medium) {
+		font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+		line-height: 2.5rem;
+	}
+}
+
+h3 {
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1rem;
+	margin-block-start: 0.3em;
+	margin-block-end: 0.3em;
+
+	@media (min-width: $screen-medium) {
+		line-height: 1.5rem;
+	}
+}
+
+ol,
+ul {
+	margin-block-start: 0.3em;
+	margin-block-end: 0.3em;
 }
