@@ -21,7 +21,7 @@ const Nav = () => {
 				>
 					<img src='/cart.svg' />
 					<div className='cart--amount'>
-						<p>{cartQuantity}</p>
+						<p className='cart--amount__number'>{cartQuantity}</p>
 					</div>
 				</div>
 			}
