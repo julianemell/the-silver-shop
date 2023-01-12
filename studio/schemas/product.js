@@ -46,7 +46,17 @@ export default {
 			title: 'Images',
 			name: 'images',
 			type: 'array',
-			of: [{ type: 'image' }],
+			of: [{ 
+				type: 'image',
+				fields: [
+					{
+						title: 'Attribution',
+						name: 'attribution',
+						type: 'string',
+						description: 'alt-text - description of the picture',
+					}
+				],
+			}],
 			validation: Rule => Rule.required(),
 		},
 		{
