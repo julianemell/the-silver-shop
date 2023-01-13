@@ -5,6 +5,7 @@
 .nav-footer {
 	position: fixed;
 	bottom: 0;
+	z-index: 101;
 	
 	display: grid;
 	grid-template-columns: repeat(2, auto);
