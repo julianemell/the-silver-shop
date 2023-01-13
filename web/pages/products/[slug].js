@@ -17,37 +17,33 @@ const Details = ({ product, products }) => {
 	const quantity = getItemQuantity(_id)
 
 	return (
-		<>
-			<div className='product'>
+		<div className='product-page'>
+			<div className='product-details'>
 				<span className='product__links'>
 					<Link href='/'>Home</Link> / <Link href='/products'>Products</Link> / <span>{name}</span>
 				</span>
 
 				{product && (
 					<>
-						{images &&
-							<>
+						<img 
+							key={images[imageIndex].asset._ref} 
+							src={urlFor(images[imageIndex]).url()} 
+							alt='' 
+							className='product__image'
+						/>
+					
+						<div className='product__images-container'>
+							{product.images?.map((image, i) => (
 								<img 
-									key={images[imageIndex].asset._ref} 
-									src={urlFor(images[imageIndex]).url()} 
+									key={image?.asset._ref} 
+									src={urlFor(image).url()} 
 									alt='' 
-									className='product__image'
+									width='50' 
+									className='product__images-container-image' 
+									onMouseEnter={() => setImageIndex(i)}
 								/>
-							
-								<div className='product__images-container'>
-									{product.images?.map((image, i) => (
-										<img 
-											key={image?.asset._ref} 
-											src={urlFor(image).url()} 
-											alt='' 
-											width='50' 
-											className='product__images-container-image' 
-											onMouseEnter={() => setImageIndex(i)}
-										/>
-									))}
-								</div>
-							</>
-						}
+							))}
+						</div>
 						<h2>{name}</h2>
 						<p>{productDescription}</p>
 						<p>{productCost} kr</p>
@@ -74,7 +70,7 @@ const Details = ({ product, products }) => {
 					))}
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
