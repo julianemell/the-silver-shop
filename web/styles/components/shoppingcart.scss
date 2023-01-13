@@ -31,6 +31,7 @@
 
 	transform: translateX(100%);
 	transition: transform 350ms ease-out;
+	margin-bottom: $margin-bottom;
 
 	@media (min-width: $screen-medium) {
 		inset: auto;
@@ -39,6 +40,7 @@
 		right: 0;
 		width: 400px;
 		max-width: 400px;
+		
 	}
 }
 

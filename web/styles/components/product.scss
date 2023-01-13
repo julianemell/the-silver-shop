@@ -24,6 +24,10 @@
 	}
 }
 
+.product-page {
+	margin-bottom: $margin-bottom;
+}
+
 .product__card {
 	display: flex;
 	justify-content: center;
@@ -48,7 +52,7 @@
 	}
 }
 
-.product {
+.product-details {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -103,7 +107,7 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	gap: .5rem;
+	gap: 1rem;
 	overflow: hidden;
 }
 
