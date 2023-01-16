@@ -25,12 +25,14 @@ const Details = ({ product, products }) => {
 
 				{product && (
 					<>
-						<img 
-							key={images[imageIndex].asset._ref} 
-							src={urlFor(images[imageIndex]).url()} 
-							alt='' 
-							className='product__image'
-						/>
+						{images &&
+							<img 
+								key={images[imageIndex].asset._ref} 
+								src={urlFor(images[imageIndex]).url()} 
+								alt='' 
+								className='product__image'
+							/>
+						}
 					
 						<div className='product__images-container'>
 							{product.images?.map((image, i) => (
@@ -51,12 +53,12 @@ const Details = ({ product, products }) => {
 				)}
 				<div>
 					{product && quantity === 0 ? (
-						<button className='button button--primary' onClick={() => increaseCartQuantity(_id, product)}>Add to cart</button>
+						<button className='button button--primary' onClick={() => increaseCartQuantity(_id, product, (quantity + 1))}>Add to cart</button>
 					) : (
 						<div className='product--amount'>
 							<button className='product--amount-change' onClick={() => decreaseCartQuantity(_id, product)}>-</button>
 							<span>{quantity}</span>
-							<button className='product--amount-change' onClick={() => increaseCartQuantity(_id, product)}>+</button>
+							<button className='product--amount-change' onClick={() => increaseCartQuantity(_id, product, (quantity + 1))}>+</button>
 						</div>
 					)}
 				</div>
