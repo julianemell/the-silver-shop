@@ -29,39 +29,60 @@ const CartContextProvider = ({ children }) => {
 		}
 	}
 
-	const increaseCartQuantity = (id, product) => {
-		setCartItems(currentItems => {
-			if(currentItems.find(item => item.id === id) == null) {
-				return [
-					...currentItems, 
-					{ 
-						id, 
-						name: product.name, 
-						productCost: product.productCost, 
-						images: product.images, 
-						quantity: 1 
-					}
-				]
-			} else {
-				return currentItems.map(item => {
-					if (item.id === id) {
-						return { ...item, quantity: item.quantity + 1}
-					} else {
-						return item
-					}
-				})
-			}
-		})
+	const increaseCartQuantity = (id, product, stocklevel) => {
+		if (product.stockLevel >= stocklevel) {
+			setCartItems(currentItems => {
+				if(currentItems.find(item => item.id === id) == null) {
+					return [
+						...currentItems, 
+						{ 
+							id, 
+							name: product.name, 
+							productCost: product.productCost, 
+							images: product.images,
+							stockLevel: product.stockLevel,
+							quantity: 1,
+							message: '',
+						}
+					]
+				} else {
+					return currentItems.map(item => {
+						if (item.id === id) {
+							return { ...item, quantity: item.quantity + 1}
+						} else {
+							return item
+						}
+					})
+				}
+			})
+		} else {
+			setCartItems(currentItems => {
+				if(currentItems.find(item => item.id === id) == null) {
+					return [
+						...currentItems
+					]
+				} else {
+					return currentItems.map(item => {
+						if (item.id === id) {
+							return { ...item, quantity: item.quantity, message: 'Stock is too low, cannot add more items'}
+						} else {
+							return item
+						}
+					})
+				}
+			})
+		}
 	}
 
 	const decreaseCartQuantity = (id) => {
+		
 		setCartItems(currentItems => {
 			if(currentItems.find(item => item.id === id)?.quantity === 1) {
 				return currentItems.filter(item => item.id !== id)
 			} else {
 				return currentItems.map(item => {
 					if (item.id === id) {
-						return { ...item, quantity: item.quantity - 1}
+						return { ...item, quantity: item.quantity - 1, message: '' }
 					} else {
 						return item
 					}
@@ -71,6 +92,7 @@ const CartContextProvider = ({ children }) => {
 	}
 
 	const removeFromCart = (id) => {
+		
 		setCartItems(currentItems => {
 			return currentItems.filter(item => item.id !== id)
 		})
