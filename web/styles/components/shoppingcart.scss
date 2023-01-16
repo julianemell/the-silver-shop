@@ -18,6 +18,17 @@
 	background-color: white;
 }
 
+.shoppingcart__bg {
+	position: absolute;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.099);
+	transform: translateX(100%);
+	transition: transform 0ms ease-out;
+}
+
 .shoppingcart-items {
 	position: relative;
 	position: fixed;
@@ -40,6 +51,25 @@
 		max-width: 336px;
 		width: 336px;
 	}
+}
+
+.shoppingcart-items[data-visible=true],
+.shoppingcart__bg[data-visible=true] {
+	transform: translateX(0%);
+}
+
+.shoppingcart--close {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	z-index: 101;
+
+	border: none;
+	background: none;
+	width: 1rem;
+	height: 1rem;
+	background: center url('../../public/kryss.svg') transparent no-repeat;
+	cursor: pointer;
 }
 
 .cartitems__total-price {
@@ -97,24 +127,6 @@
 	color: colors.$primary-orange;
 	width: 30%;
 	text-align: right;
-}
-
-.shoppingcart-items[data-visible=true] {
-	transform: translateX(0%);
-}
-
-.shoppingcart--close {
-	position: absolute;
-	top: 2rem;
-	right: 2rem;
-	z-index: 101;
-
-	border: none;
-	background: none;
-	width: 1rem;
-	height: 1rem;
-	background: center url('../../public/kryss.svg') transparent no-repeat;
-	cursor: pointer;
 }
 
 .shoppingcart--add-remove {
