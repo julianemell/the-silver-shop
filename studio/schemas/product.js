@@ -83,6 +83,11 @@ export default {
 			},
 			validation: Rule => Rule.required(),
 		},
-		
+		{
+			title: 'Stock level',
+			name: 'stockLevel',
+			type: 'number',
+			validation: Rule => Rule.required(),
+		},
 	]
 }
