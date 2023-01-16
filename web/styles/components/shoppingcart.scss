@@ -82,11 +82,14 @@
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
+	flex-wrap: wrap;
+
 	color: white;
 	padding: 1rem;
 	margin-bottom: 1rem;
 	background-color: colors.$primary-green;
 	width: 100%;
+
 	&:nth-child(odd) {
 		background-color: colors.$primary-yellow;
 	}
@@ -109,7 +112,7 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: .5rem;
-	width: 100%;
+	width: 60%;
 
 	@media (min-width: 400px) {
 		justify-content: flex-start;
@@ -134,7 +137,7 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: .5rem;
-	width: 100%;
+	width: 40%;
 
 	@media (min-width: 400px) {
 		justify-content: flex-end;
@@ -148,4 +151,10 @@
 		height: 1rem;
 		cursor: pointer;
 	}
+}
+
+.stocklevel-message {
+	font-size: x-small;
+	width: 100%;
+	text-align: right;
 }
