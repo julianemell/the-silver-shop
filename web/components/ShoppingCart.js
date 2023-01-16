@@ -44,37 +44,45 @@ const ShoppingCart = () => {
 	}, [])
 
 	return (
-		<div className='shoppingcart'>
-			{cartQuantity >= 1 && isOpen == true &&
-				<div className='shoppingcart-items' data-visible={isOpen}>
-					<button 
-						className='shoppingcart--close'
-						onClick={closeCart}
-						aria-controls="shoppingcart-items"
-						aria-expanded='false'
-						data-visible={isOpen}
-					></button>
+		<>
+			<span 
+				className='shoppingcart__bg' 
+				onClick={closeCart} 
+				data-visible={isOpen}
+			></span>
 
-					{cartItems && cartItems.map(item => (
-						<ShoppingCartItem key={item.id} product={item} allProducts={allProducts} />
-					))}
-
-					<div>
-						<p>
-							Total: {cartItems.reduce((total, cartItem) => {
-								const productInCart = allProducts.find(i => i._id === cartItem.id)
-								return total + (productInCart?.productCost || 0) * cartItem.quantity
-							}, 0)} kr
-						</p>
+			<div className='shoppingcart'>
+				{cartQuantity >= 1 && isOpen == true &&
+					<div className='shoppingcart-items' data-visible={isOpen}>
 						<button 
-							className='button button--secondary'
-							onClick={() => handleCheckOut()}
-						>Go to checkout</button>
+							className='shoppingcart--close'
+							onClick={closeCart}
+							aria-controls='shoppingcart-items'
+							aria-expanded='false'
+							data-visible={isOpen}
+						></button>
+
+						{cartItems && cartItems.map(item => (
+							<ShoppingCartItem key={item.id} product={item} allProducts={allProducts} />
+						))}
+
+						<div>
+							<p className='cartitems__total-price'>
+								Total: {cartItems.reduce((total, cartItem) => {
+									const productInCart = allProducts.find(i => i._id === cartItem.id)
+									return total + (productInCart?.productCost || 0) * cartItem.quantity
+								}, 0)} kr
+							</p>
+							<button 
+								className='button button--secondary'
+								onClick={() => handleCheckOut()}
+							>Go to checkout</button>
+						</div>
+						<p></p>
 					</div>
-					<p></p>
-				</div>
-			}
-		</div>
+				}
+			</div>
+		</>
 	)
 }
 
