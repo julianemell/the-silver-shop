@@ -6,7 +6,7 @@ import { client, urlFor } from '../../library/client'
 
 const Details = ({ product, products }) => {
 	const [imageIndex, setImageIndex] = useState(0)
-	const { images, _id, name, productDescription, productCost } = product
+	const { images, _id, name, productDescription, productCost, stockLevel } = product
 
 	const { 
 		getItemQuantity,
@@ -52,13 +52,20 @@ const Details = ({ product, products }) => {
 					</>
 				)}
 				<div>
-					{product && quantity === 0 ? (
+					{product && quantity === 0 && stockLevel > 0 && (
 						<button className='button button--primary' onClick={() => increaseCartQuantity(_id, product, (quantity + 1))}>Add to cart</button>
-					) : (
+					)} 
+					{product && quantity !== 0 && stockLevel > 0 && (
 						<div className='product--amount'>
 							<button className='product--amount-change' onClick={() => decreaseCartQuantity(_id, product)}>-</button>
 							<span>{quantity}</span>
 							<button className='product--amount-change' onClick={() => increaseCartQuantity(_id, product, (quantity + 1))}>+</button>
+						</div>
+					)}
+					{product && stockLevel < 1 && (
+						<div className='out-of-stock'>
+							<p id='out-of-stock__message'>Item is out of stock</p>
+							<button className='button button--primary' onClick={() => handleEmail()}>Message me when the item is back in stock</button>
 						</div>
 					)}
 				</div>
