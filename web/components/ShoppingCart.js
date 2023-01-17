@@ -33,6 +33,21 @@ const ShoppingCart = () => {
 		stripe.redirectToCheckout({ sessionId: data.id })
 	}
 
+	const handleChangeStockLevel = async () => {
+		try {
+			await fetch('/api/mutateProducts', {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(cartItems),
+			})
+
+		} catch (err) {
+			console.log('error', err.message)
+		}
+	}
+
 	useEffect(() => {
 		const getProducts = async () => {
 			await client
@@ -75,7 +90,7 @@ const ShoppingCart = () => {
 							</p>
 							<button 
 								className='button button--secondary'
-								onClick={() => handleCheckOut()}
+								onClick={() => handleChangeStockLevel()}
 							>Go to checkout</button>
 						</div>
 						<p></p>
