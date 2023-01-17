@@ -20,13 +20,14 @@
 
 .shoppingcart__bg {
 	position: absolute;
+	position: fixed;
 	z-index: 99;
 	width: 100%;
 	height: 100%;
 	inset: 0;
 	background-color: rgba(0, 0, 0, 0.099);
 	transform: translateX(100%);
-	transition: transform 0ms ease-out;
+	transition: transform 1ms ease-out;
 }
 
 .shoppingcart-items {
