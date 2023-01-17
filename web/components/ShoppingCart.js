@@ -90,7 +90,7 @@ const ShoppingCart = () => {
 							</p>
 							<button 
 								className='button button--secondary'
-								onClick={() => handleChangeStockLevel()}
+								onClick={() => {handleChangeStockLevel(); handleCheckOut()}}
 							>Go to checkout</button>
 						</div>
 						<p></p>
