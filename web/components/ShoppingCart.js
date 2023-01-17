@@ -93,7 +93,6 @@ const ShoppingCart = () => {
 								onClick={() => {handleChangeStockLevel(); handleCheckOut()}}
 							>Go to checkout</button>
 						</div>
-						<p></p>
 					</div>
 				}
 			</div>
