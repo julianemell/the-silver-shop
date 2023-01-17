@@ -79,6 +79,17 @@
 	}
 }
 
+.out-of-stock {
+	margin: 1rem 0;
+
+	#out-of-stock__message {
+		text-align: center;
+		font-size: small;
+		color: red;
+		margin: 0;
+	}
+}
+
 .product__links {
 	display: flex;
 	justify-content: center;
