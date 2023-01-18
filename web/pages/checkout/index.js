@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import ShoppingCartItem from '../../components/ShoppingCartItem'
 import { useShoppingCart } from '../../context/CartContextProvider'
 import { client } from '../../library/client'
-//import Link from 'next/link'
 import { useForm } from 'react-hook-form'
+import OrderSummary from '../../components/OrderSummary'
 const short = require('short-uuid')
 
 const Checkout = () => {
@@ -11,6 +11,7 @@ const Checkout = () => {
 	const [allProducts, setAllProducts] = useState([])
 	const [order, setOrder] = useState([])
 	const [totalCost, setTotalCost] = useState(null)
+	const [showSummary, setShowSummary] = useState(false)
 
 	const { 
 		cartItems,
@@ -42,26 +43,14 @@ const Checkout = () => {
 		}
 
 		setOrder(orderInfo)
+		setShowSummary(current => !current)
 
 		console.log('order', order)
 
 		//reset()
 	}
 
-	const handleCheckout = async () => {
-		try {
-			await fetch('/api/order', {
-				method: 'PATCH',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(order),
-			})
 
-		} catch (err) {
-			console.log('error', err.message)
-		}
-	}
 
 	useEffect(() => {
 		setTotalCost(cartItems.reduce((total, cartItem) => {
@@ -80,7 +69,7 @@ const Checkout = () => {
 	}, [])
 
 	return (
-		<div>
+		<div className='overview'>
 			<h1>Overview</h1>
 			{cartItems && cartItems.map(item => (
 				<ShoppingCartItem key={item.id} product={item} allProducts={allProducts} />
@@ -141,7 +130,9 @@ const Checkout = () => {
 				
 				<button type='submit' className='button button--secondary'>Order summary</button>
 			</form>
-				<button className='button button--secondary' onClick={() => handleCheckout()}>go to payment</button>
+			{showSummary && (
+				<OrderSummary order={order} />
+			)}
 		</div>
 	)
 }
