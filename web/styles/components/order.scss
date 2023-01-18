@@ -1,0 +1,40 @@
+// order
+@use '../general/colors';
+
+.overview {
+	position: relative;
+}
+
+.ordersummary {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.108);
+}
+
+.order-content {
+	margin: 0 auto;
+	width: 70%;
+	max-width: 350px;
+	height: auto;
+	background-color: white;
+	padding: 3rem 2rem 4rem 2rem;
+	text-align: center;
+}
+
+.ordersummary-address {
+	padding: 2rem 1rem;
+	margin-bottom: 1rem;
+	background-color: colors.$primary-yellow;
+	color: colors.$primary-brown;
+	text-align: left;
+}
+
+.ordersummary-product {
+	text-align: center;
+}
+
+.ordersummary-total {
+	color: colors.$primary-orange;
+}
