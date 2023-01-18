@@ -113,6 +113,10 @@
 		cursor: pointer;
 	}
 }
+.products__marquee-container {
+	margin: 2rem auto;
+	width: 90%;
+}
 
 .products__marquee {
 	display: flex;
@@ -120,5 +124,11 @@
 	align-items: center;
 	gap: 1rem;
 	overflow: hidden;
+	overflow: scroll;
+	height: 360px;
+}
+
+.product__price {
+	color: colors.$primary-orange;
 }
 
