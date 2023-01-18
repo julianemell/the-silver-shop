@@ -1,8 +1,26 @@
 // order
 @use '../general/colors';
+@use '../general/responsive' as *;
 
 .overview {
 	position: relative;
+	margin: 0 auto;
+	margin-bottom: $margin-bottom;
+	max-width: $max-width;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.customer-details {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 2rem;
 }
 
 .ordersummary {
