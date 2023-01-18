@@ -103,7 +103,7 @@
 		padding: .5rem;
 	}
 
-	@media (min-width: 400px) {
+	@media (min-width: $screen-xsmall) {
 		flex-direction: row;
 	}
 }
@@ -115,7 +115,7 @@
 	gap: .5rem;
 	width: 60%;
 
-	@media (min-width: 400px) {
+	@media (min-width: $screen-xsmall) {
 		justify-content: flex-start;
 	}
 }
@@ -140,7 +140,7 @@
 	gap: .5rem;
 	width: 40%;
 
-	@media (min-width: 400px) {
+	@media (min-width: $screen-xsmall) {
 		justify-content: flex-end;
 	}
 
