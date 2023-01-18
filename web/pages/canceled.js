@@ -12,7 +12,7 @@ const canceled = () => {
 	}, [])
 
 	return (
-		<div>
+		<div className='order__canceled'>
 			<p>No order has gone through</p>
 			<p>You are being redirected to the products page</p>
 		</div>

@@ -58,3 +58,13 @@
 .ordersummary-total {
 	color: colors.$primary-orange;
 }
+
+.order__canceled,
+.order__success {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: $max-width;
+}

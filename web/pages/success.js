@@ -11,7 +11,7 @@ const success = () => {
 	}, [])
 
 	return (
-		<div className=''>
+		<div className='order__success'>
 			<h2>Thank you for your order!</h2>
 			<p>Check your email for the order confirmation</p>
 			<p>If you have any questions please email: 
