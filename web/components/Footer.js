@@ -14,7 +14,7 @@ const Footer = () => {
 					About
 				</div>
 			</Link>
-			<Link href='#' className='nav-footer__item nav-footer__item-social'>
+			<Link href='https://www.instagram.com/julias-shop-of-silver' className='nav-footer__item nav-footer__item-social'>
 				<div>
 					instagram
 				</div>
