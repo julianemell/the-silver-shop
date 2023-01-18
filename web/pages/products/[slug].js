@@ -48,7 +48,7 @@ const Details = ({ product, products }) => {
 						</div>
 						<h2>{name}</h2>
 						<p>{productDescription}</p>
-						<p>{productCost} kr</p>
+						<p className='product__price'>{productCost} kr</p>
 					</>
 				)}
 				<div>
@@ -71,7 +71,7 @@ const Details = ({ product, products }) => {
 				</div>
 			</div>
 
-			<div>
+			<div className='products__marquee-container'>
 				<h3>You may also like:</h3>
 				<div className='products__marquee'>
 					{products && products.map(item => (
