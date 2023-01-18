@@ -50,7 +50,6 @@ const OrderSummary = ({ order }) => {
 				<h1>Order summary</h1>
 				{order && (
 					<>
-						<p>Order placed: {orderDate}</p>
 						<div className='ordersummary-address'>
 							<p>{name}</p>
 							<p>{streetAddress}</p>
