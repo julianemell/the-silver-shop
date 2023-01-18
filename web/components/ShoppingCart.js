@@ -2,7 +2,7 @@ import ShoppingCartItem from './ShoppingCartItem'
 import { useShoppingCart } from '../context/CartContextProvider'
 import { useEffect, useState } from 'react'
 import { client } from '../library/client'
-import getStripe from '../library/getStripe'
+import Link from 'next/link'
 
 const ShoppingCart = () => {
 	const [allProducts, setAllProducts] = useState([])
@@ -13,27 +13,10 @@ const ShoppingCart = () => {
 		isOpen,
 		cartQuantity,
 	} = useShoppingCart()
-	
-	const handleCheckOut = async () => {
-		const stripe = await getStripe()
-
-		//här kan vi ev använda axios istället
-		const res = await fetch('/api/stripe', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(cartItems),
-		})
-
-		if(res.statusCode === 500) return
-		
-		const data = await res.json()
-
-		stripe.redirectToCheckout({ sessionId: data.id })
-	}
 
 	const handleChangeStockLevel = async () => {
+		closeCart()
+		
 		try {
 			await fetch('/api/mutateProducts', {
 				method: 'PATCH',
@@ -88,10 +71,15 @@ const ShoppingCart = () => {
 									return total + (productInCart?.productCost || 0) * cartItem.quantity
 								}, 0)} kr
 							</p>
-							<button 
-								className='button button--secondary'
-								onClick={() => {handleChangeStockLevel(); handleCheckOut()}}
-							>Go to checkout</button>
+							<Link href='/checkout'>
+								<button 
+									className='button button--secondary'
+									onClick={() => {handleChangeStockLevel()}}
+									aria-controls='shoppingcart-items'
+									aria-expanded='false'
+									data-visible={isOpen}
+								>Go to checkout</button>
+							</Link>
 						</div>
 					</div>
 				}
