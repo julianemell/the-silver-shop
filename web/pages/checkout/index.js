@@ -47,10 +47,8 @@ const Checkout = () => {
 
 		console.log('order', order)
 
-		//reset()
+		reset()
 	}
-
-
 
 	useEffect(() => {
 		setTotalCost(cartItems.reduce((total, cartItem) => {
@@ -77,15 +75,17 @@ const Checkout = () => {
 			<div>
 				<p>Total: {totalCost} kr</p>
 			</div>
-
-			<form onSubmit={handleSubmit(onSubmit)}>
+			
+			<form className='customer-details' onSubmit={handleSubmit(onSubmit)}>
+				<h3>Enter your address</h3>
 				<input 
 					{...register('name', {
 						required: true,
 					})}
 					type='text'
 					id='name'
-					placeholder='Your full name'
+					placeholder='first and lastname'
+					className='input-field'
 				/>
 				<input 
 					{...register('streetAddress', {
@@ -94,14 +94,14 @@ const Checkout = () => {
 					type='text'
 					id='address-street'
 					placeholder='street 1'
+					className='input-field'
 				/>
 				<input 
-					{...register('streetAddress2', {
-						required: true,
-					})}
+					{...register('streetAddress2')}
 					type='text'
 					id='address-street2'
 					placeholder='apartment 1'
+					className='input-field'
 				/>
 				<input 
 					{...register('postCode', {
@@ -110,6 +110,7 @@ const Checkout = () => {
 					type='text'
 					id='postcode'
 					placeholder='post code'
+					className='input-field'
 				/>
 				<input 
 					{...register('city', {
@@ -118,6 +119,7 @@ const Checkout = () => {
 					type='text'
 					id='city'
 					placeholder='city'
+					className='input-field'
 				/>
 				<input 
 					{...register('email', {
@@ -126,6 +128,7 @@ const Checkout = () => {
 					type='email'
 					id='email'
 					placeholder='email'
+					className='input-field'
 				/>
 				
 				<button type='submit' className='button button--secondary'>Order summary</button>
