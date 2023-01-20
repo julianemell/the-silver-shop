@@ -9,7 +9,6 @@ const ShoppingCartItem = ({ product, allProducts }) => {
 		increaseCartQuantity,
 		decreaseCartQuantity,
 		removeFromCart,
-		stockMessage,
 	} = useShoppingCart()
 
 	const quantity = getItemQuantity(product.id)
@@ -33,7 +32,7 @@ const ShoppingCartItem = ({ product, allProducts }) => {
 								/>
 							}
 						</span>
-						<p>{productInCart.name}</p>
+						<p className='shoppingcart-item__name'>{productInCart.name}</p>
 						<p className='shoppingcart-item__price'>{totCost(productInCart.productCost, quantity)} kr</p>
 					</div>
 					
