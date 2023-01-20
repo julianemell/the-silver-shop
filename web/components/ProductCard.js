@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
 				{product.images && 
 					<img key={product.images[0].asset._ref} src={urlFor(product.images[0]).url()} alt='' width='200' className='product__image' />
 				}
-				<h2>{product?.name}</h2>
+				<h3>{product?.name}</h3>
 				<p>{product.productCost} kr</p>
 			
 		</Link>
