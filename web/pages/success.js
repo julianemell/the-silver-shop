@@ -14,9 +14,9 @@ const success = () => {
 		<div className='order__success'>
 			<h2>Thank you for your order!</h2>
 			<p>Check your email for the order confirmation</p>
-			<p>If you have any questions please email: 
-				<a href='mailto:order@juliasshopofsilver.com'> order@juliasshopofsilver.com</a>
-			</p>
+			<p>If you have any questions please email: </p>
+			<a href='mailto:order@juliasshopofsilver.com'> order@juliasshopofsilver.com</a>
+			
 			<Link href='/'>
 				<button className='button button--primary'>
 					Continue shopping
