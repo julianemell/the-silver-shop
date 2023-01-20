@@ -30,7 +30,8 @@ export const getServerSideProps = async () => {
 	return {
 		props: {
 			products
-		}
+		},
+		revalidate: 10,
 	}
 }
 
